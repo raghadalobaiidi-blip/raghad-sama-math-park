@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>رغد وسما في حديقة الرياضيات</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;700&display=swap">
+<style>
+:root{--bg:#fff6df;--ink:#2b2a4c;--card:#ffffff;--accent:#7b5ea7;--btn:#ff7a6b;--btnink:#2b2a4c;--mute:#6b6a8c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1b36;--ink:#f6f1ff;--card:#2a2850;--accent:#c4a8ff;--btn:#ff8f80;--btnink:#1d1b36;--mute:#b5b2d8}}
+:root[data-theme="dark"]{--bg:#1d1b36;--ink:#f6f1ff;--card:#2a2850;--accent:#c4a8ff;--btn:#ff8f80;--btnink:#1d1b36;--mute:#b5b2d8}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Baloo Bhaijaan 2",Tahoma,"Segoe UI",sans-serif;min-height:100vh}
+main{max-width:760px;margin:0 auto;padding:18px 16px 28px}
+h1{font-size:clamp(1.3rem,4.5vw,1.9rem);margin:0 0 12px;text-align:center}
+.stage{border-radius:22px;overflow:hidden;border:4px solid var(--ink);background:#bfe8f2}
+.scene{display:none}.scene.on{display:block}
+svg{display:block;width:100%;height:auto}
+.card{background:var(--card);border-radius:18px;margin-top:14px;padding:14px 18px;min-height:128px}
+.card h2{margin:0 0 6px;font-size:1.25rem;color:var(--accent)}
+.card p{margin:0;font-size:1.1rem;line-height:1.8;max-width:60ch}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
+button{font:inherit;font-weight:700;font-size:1rem;border:0;border-radius:999px;padding:9px 20px;background:var(--btn);color:var(--btnink);cursor:pointer}
+button:disabled{opacity:.4;cursor:default}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.dots{display:flex;gap:8px}
+.dots i{width:12px;height:12px;border-radius:50%;background:var(--mute);opacity:.4}
+.dots i.on{background:var(--btn);opacity:1;transform:scale(1.3)}
+#play,#snd{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+#dlg{margin-top:12px;display:grid;gap:8px}
+.ln{display:flex;gap:10px;align-items:flex-start;animation:lnin .4s backwards}
+.ln b{flex:none;border-radius:999px;padding:1px 12px;font-size:.95rem;color:#2b2a4c}
+.ln.r b{background:#ff9d92}.ln.s b{background:#7fd6cf}
+.ln span{line-height:1.7;font-size:1.05rem}
+@keyframes lnin{from{opacity:0;transform:translateY(8px)}}
+@media (prefers-reduced-motion:reduce){.ln{animation:none}}
+/* animations: initial states live in "from" so reduced motion shows final art */
+.on .pop{animation:pop .5s backwards;transform-box:fill-box;transform-origin:center}
+.on .bob{animation:bob 1.5s ease-in-out infinite alternate;transform-box:fill-box}
+.on .walk{animation:walk 2.2s ease-out backwards}
+.on .jump{animation:jump .6s ease-in-out infinite alternate}
+.on .drop{animation:drop 1.2s cubic-bezier(.3,1.6,.5,1) 1.6s backwards}
+.on .lamp{animation:lit .4s backwards}
+.on .glow{animation:glow .6s backwards}
+.on .press{animation:press .5s .7s backwards;transform-box:fill-box;transform-origin:center}
+.on .roll{animation:roll 2.6s ease-in 1s infinite}
+.on .fall{animation:fall 3s linear infinite}
+.on .pulse{animation:pulse 1s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+@keyframes pop{from{opacity:0;transform:scale(.3)}}
+@keyframes bob{to{transform:translateY(-7px)}}
+@keyframes walk{from{transform:translateX(170px)}}
+@keyframes jump{to{transform:translateY(-16px)}}
+@keyframes drop{from{transform:translateY(-110px);opacity:0}}
+@keyframes lit{from{fill:#55537f}}
+@keyframes glow{from{opacity:0}}
+@keyframes press{50%{transform:scale(.6)}}
+@keyframes roll{0%{transform:translate(0,0);opacity:1}85%{transform:translate(-240px,120px);opacity:1}100%{transform:translate(-240px,120px);opacity:0}}
+@keyframes fall{from{transform:translateY(-30px)}to{transform:translateY(250px)}}
+@keyframes pulse{to{transform:scale(1.25)}}
+@media (prefers-reduced-motion:reduce){.on *{animation:none!important}}
+text{font-family:"Baloo Bhaijaan 2",Tahoma,sans-serif;fill:#2b2a4c;text-anchor:middle}
+</style>
+</head>
+<body>
+<main>
+<h1>رغد وسما في حديقة الرياضيات</h1>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<symbol id="sky" viewBox="0 0 400 240"><rect width="400" height="240" fill="#bfe8f2"/><circle cx="345" cy="38" r="20" fill="#ffc93c"/><ellipse cx="90" cy="35" rx="34" ry="11" fill="#fff"/><ellipse cx="115" cy="28" rx="22" ry="10" fill="#fff"/><rect y="195" width="400" height="45" fill="#6cbf84"/></symbol>
+<symbol id="rg" viewBox="0 0 40 70"><ellipse cx="20" cy="18" rx="14" ry="15" fill="#4a2c2a"/><rect x="6" y="18" width="6" height="22" rx="3" fill="#4a2c2a"/><rect x="28" y="18" width="6" height="22" rx="3" fill="#4a2c2a"/><circle cx="20" cy="20" r="11" fill="#f2c9a0"/><circle cx="16" cy="19" r="1.5" fill="#2b2a4c"/><circle cx="24" cy="19" r="1.5" fill="#2b2a4c"/><path d="M16 25q4 3 8 0" stroke="#2b2a4c" fill="none" stroke-width="1.5" stroke-linecap="round"/><path d="M10 34h20l4 24H6z" fill="#ff7a6b"/><rect x="12" y="58" width="5" height="10" fill="#f2c9a0"/><rect x="23" y="58" width="5" height="10" fill="#f2c9a0"/></symbol>
+<symbol id="sm" viewBox="0 0 40 70"><circle cx="20" cy="20" r="16" fill="#7b5ea7"/><circle cx="20" cy="21" r="10.5" fill="#f2c9a0"/><circle cx="16" cy="20" r="1.5" fill="#2b2a4c"/><circle cx="24" cy="20" r="1.5" fill="#2b2a4c"/><path d="M16 26q4 3 8 0" stroke="#2b2a4c" fill="none" stroke-width="1.5" stroke-linecap="round"/><path d="M8 34q12 8 24 0l3 24H5z" fill="#2ba8a0"/><path d="M10 33q10 7 20 0l-2 8q-8 4 -16 0z" fill="#7b5ea7"/><rect x="12" y="58" width="5" height="10" fill="#f2c9a0"/><rect x="23" y="58" width="5" height="10" fill="#f2c9a0"/></symbol>
+</defs>
+</svg>
+
+<div class="stage">
+
+<!-- 1: gate -->
+<div class="scene on"><svg viewBox="0 0 400 240" role="img" aria-label="رغد وسما تدخلان بوابة حديقة الرياضيات">
+<use href="#sky" width="400" height="240"/>
+<rect x="64" y="60" width="14" height="136" fill="#7b5ea7"/><rect x="322" y="60" width="14" height="136" fill="#7b5ea7"/>
+<rect x="50" y="42" width="300" height="32" rx="10" fill="#7b5ea7"/>
+<text x="200" y="65" font-size="18" style="fill:#fff">حديقة الرياضيات</text>
+<g class="bob"><text x="110" y="115" font-size="26" style="fill:#ff7a6b">+</text></g>
+<g class="bob" style="animation-delay:.4s"><text x="270" y="105" font-size="26" style="fill:#2ba8a0">×</text></g>
+<g class="bob" style="animation-delay:.8s"><text x="200" y="100" font-size="22" style="fill:#7b5ea7">½</text></g>
+<g class="walk"><use href="#rg" x="160" y="127" width="40" height="70"/><use href="#sm" x="210" y="127" width="40" height="70"/></g>
+</svg></div>
+
+<!-- 2: guess balls -->
+<div class="scene"><svg viewBox="0 0 400 240" role="img" aria-label="برطمان كرات ملونة وتخمين العدد">
+<use href="#sky" width="400" height="240"/>
+<rect x="90" y="70" width="100" height="125" rx="14" fill="#fff" fill-opacity=".45" stroke="#2b2a4c" stroke-width="3"/>
+<rect x="85" y="62" width="110" height="12" rx="5" fill="#7b5ea7"/>
+<g>
+<circle class="bob" cx="115" cy="180" r="11" fill="#ff7a6b"/><circle class="bob" style="animation-delay:.2s" cx="140" cy="182" r="11" fill="#ffc93c"/><circle class="bob" style="animation-delay:.4s" cx="166" cy="180" r="11" fill="#2ba8a0"/>
+<circle class="bob" style="animation-delay:.6s" cx="125" cy="158" r="11" fill="#7b5ea7"/><circle class="bob" style="animation-delay:.1s" cx="152" cy="160" r="11" fill="#ff7a6b"/><circle class="bob" style="animation-delay:.3s" cx="176" cy="158" r="11" fill="#ffc93c"/>
+<circle class="bob" style="animation-delay:.5s" cx="116" cy="136" r="11" fill="#2ba8a0"/><circle class="bob" style="animation-delay:.7s" cx="142" cy="136" r="11" fill="#ff7a6b"/><circle class="bob" style="animation-delay:.2s" cx="168" cy="136" r="11" fill="#7b5ea7"/>
+<circle class="bob" style="animation-delay:.9s" cx="130" cy="113" r="11" fill="#ffc93c"/><circle class="bob" style="animation-delay:.4s" cx="156" cy="113" r="11" fill="#2ba8a0"/>
+</g>
+<g class="pop" style="animation-delay:3.2s"><circle cx="140" cy="30" r="24" fill="#ffc93c" stroke="#2b2a4c" stroke-width="2"/><text x="140" y="39" font-size="24">٣٨</text></g>
+<g class="pop" style="animation-delay:.6s"><rect x="205" y="28" width="92" height="30" rx="10" fill="#fff"/><text x="251" y="49" font-size="16">أظن ٣٠!</text></g>
+<g class="pop" style="animation-delay:1.6s"><rect x="296" y="72" width="96" height="30" rx="10" fill="#fff"/><text x="344" y="93" font-size="16">وأنا أظن ٤٥!</text></g>
+<use href="#rg" x="290" y="127" width="40" height="70"/><use href="#sm" x="340" y="127" width="40" height="70"/>
+</svg></div>
+
+<!-- 3: counterexample -->
+<div class="scene"><svg viewBox="0 0 400 240" role="img" aria-label="كرة حمراء صغيرة هي المثال المضاد">
+<use href="#sky" width="400" height="240"/>
+<circle cx="45" cy="165" r="17" fill="#e5483a"/><circle cx="95" cy="165" r="17" fill="#e5483a"/><circle cx="145" cy="165" r="17" fill="#e5483a"/><circle cx="195" cy="165" r="17" fill="#e5483a"/>
+<g class="drop"><circle cx="250" cy="175" r="7" fill="#e5483a"/></g>
+<circle class="pulse" cx="250" cy="175" r="15" fill="none" stroke="#2b2a4c" stroke-width="2.5" stroke-dasharray="5 4"/>
+<g class="pop" style="animation-delay:.4s"><rect x="14" y="22" width="190" height="32" rx="10" fill="#fff"/><text x="109" y="44" font-size="15">كل الكرات الحمراء كبيرة!</text></g>
+<g class="pop" style="animation-delay:1.2s"><rect x="215" y="66" width="120" height="30" rx="10" fill="#fff"/><text x="275" y="87" font-size="15">انظري! هذه صغيرة!</text></g>
+<g class="pop" style="animation-delay:2.6s"><rect x="205" y="120" width="90" height="26" rx="13" fill="#ffc93c"/><text x="250" y="138" font-size="15">مثال مضاد!</text></g>
+<use href="#sm" x="300" y="127" width="40" height="70"/><use href="#rg" x="345" y="127" width="40" height="70"/>
+</svg></div>
+
+<!-- 4: lit corridor -->
+<div class="scene"><svg viewBox="0 0 400 240" role="img" aria-label="الممر المضيء: إذا ضغطتِ الزر فإن المصابيح تضيء">
+<rect width="400" height="240" fill="#3b3a63"/><rect y="195" width="400" height="45" fill="#5a5890"/>
+<g><circle class="glow" style="animation-delay:1.3s" cx="70" cy="75" r="26" fill="#ffd23f" fill-opacity=".35"/><circle class="glow" style="animation-delay:1.9s" cx="130" cy="75" r="26" fill="#ffd23f" fill-opacity=".35"/><circle class="glow" style="animation-delay:2.5s" cx="190" cy="75" r="26" fill="#ffd23f" fill-opacity=".35"/><circle class="glow" style="animation-delay:3.1s" cx="250" cy="75" r="26" fill="#ffd23f" fill-opacity=".35"/></g>
+<circle class="lamp" style="animation-delay:1.3s" cx="70" cy="75" r="13" fill="#ffd23f"/><circle class="lamp" style="animation-delay:1.9s" cx="130" cy="75" r="13" fill="#ffd23f"/><circle class="lamp" style="animation-delay:2.5s" cx="190" cy="75" r="13" fill="#ffd23f"/><circle class="lamp" style="animation-delay:3.1s" cx="250" cy="75" r="13" fill="#ffd23f"/>
+<rect x="30" y="125" width="230" height="40" rx="10" fill="#fff"/>
+<text x="145" y="150" font-size="15">إذا ضغطتِ الزر، فإن المصابيح تضيء</text>
+<circle cx="292" cy="105" r="11" fill="#fff"/><circle class="press" cx="292" cy="105" r="8" fill="#e5483a"/>
+<use href="#sm" x="278" y="127" width="40" height="70"/><use href="#rg" x="330" y="127" width="40" height="70"/>
+</svg></div>
+
+<!-- 5: slope -->
+<div class="scene"><svg viewBox="0 0 400 240" role="img" aria-label="منحدر ارتفاعه ٢ ومسافته ٤ وميله نصف">
+<use href="#sky" width="400" height="240"/>
+<polygon points="40,195 280,195 280,75" fill="#ffc93c" stroke="#2b2a4c" stroke-width="3" stroke-linejoin="round"/>
+<line x1="40" y1="206" x2="280" y2="206" stroke="#1f3d2b" stroke-width="2"/><text x="160" y="224" font-size="14" style="fill:#1f3d2b">المسافة: ٤ أمتار</text>
+<text x="270" y="150" font-size="14" style="text-anchor:end">الارتفاع: ٢ م</text>
+<g class="roll"><circle cx="271" cy="64" r="10" fill="#e5483a" stroke="#2b2a4c" stroke-width="2"/></g>
+<g class="pop" style="animation-delay:1.5s"><rect x="40" y="16" width="220" height="38" rx="12" fill="#fff"/><text x="150" y="42" font-size="17">الميل = ٢ ÷ ٤ = ½</text></g>
+<use href="#rg" x="305" y="127" width="40" height="70"/><use href="#sm" x="350" y="127" width="40" height="70"/>
+</svg></div>
+
+<!-- 6: finale -->
+<div class="scene"><svg viewBox="0 0 400 240" role="img" aria-label="رغد وسما تحتفلان بالرياضيات">
+<use href="#sky" width="400" height="240"/>
+<rect class="fall" x="40" y="0" width="8" height="8" fill="#ff7a6b"/><rect class="fall" style="animation-delay:-.7s" x="110" y="0" width="8" height="8" fill="#7b5ea7"/><rect class="fall" style="animation-delay:-1.4s" x="180" y="0" width="8" height="8" fill="#2ba8a0"/><rect class="fall" style="animation-delay:-2.1s" x="250" y="0" width="8" height="8" fill="#ffc93c"/><rect class="fall" style="animation-delay:-.3s" x="320" y="0" width="8" height="8" fill="#ff7a6b"/><rect class="fall" style="animation-delay:-1.8s" x="370" y="0" width="8" height="8" fill="#7b5ea7"/>
+<text x="200" y="85" font-size="28" style="font-weight:700">الرياضيات مغامرة!</text>
+<g class="jump"><use href="#rg" x="150" y="125" width="40" height="70"/></g><g class="jump" style="animation-delay:.3s"><use href="#sm" x="205" y="125" width="40" height="70"/></g>
+</svg></div>
+
+</div>
+
+<div class="card" aria-live="polite"><h2 id="t"></h2><p id="p"></p><div id="dlg"></div></div>
+<div class="bar">
+<button id="next">التالي</button>
+<div class="dots" id="dots"></div>
+<button id="prev">السابق</button>
+</div>
+<div class="bar" style="justify-content:center"><button id="snd">المؤثرات الصوتية: مغلقة</button><button id="play">تشغيل تلقائي</button></div>
+</main>
+<script>
+var D=[
+["بوابة الحديقة","في صباح مشمس دخلت رغد وسما حديقة الرياضيات المجتمعية. قالت سما: «هنا الرياضيات ليست مجرد دفاتر ورموز!»"],
+["لعبة التخمين","برطمان مليء بالكرات الملونة! خمّنت رغد ٣٠ وخمّنت سما ٤٥، والعدد الحقيقي ٣٨. التخمين الذكي هو الذي يقترب من الجواب."],
+["المثال المضاد","قالت سما بثقة: «كل الكرات الحمراء كبيرة!» فأشارت رغد إلى كرة حمراء صغيرة. مثال واحد مضاد يكفي ليكسر العبارة."],
+["الممر المضيء","على لوحة الممر: إذا ضغطتِ الزر، فإن المصابيح تضيء. ضغطت سما الزر فأضاءت المصابيح واحدًا بعد الآخر."],
+["ميل المنحدر","المنحدر ارتفاعه ٢ متر ومسافته ٤ أمتار. الميل = الارتفاع ÷ المسافة = ٢ ÷ ٤ = ½. وكلما زاد الميل نزلت الكرة أسرع."],
+["النهاية","خرجت الصديقتان تضحكان، واكتشفتا أن الرياضيات تُلعب وتُعاش وتُكتشف."]
+];
+var L=[
+[["s","رغد، تعالي! سمعت أن الحديقة مليئة بألعاب الرياضيات."],["r","ألعاب؟ أنا ظننت الرياضيات دفاتر وأرقامًا فقط!"],["s","لا، هنا نلعبها ونجرّبها بأيدينا!"]],
+[["r","كم كرة في البرطمان؟ أظن ٣٠!"],["s","وأنا أظن ٤٥، يبدو أنها كثيرة."],["r","العدد ٣٨! فرق تخمينك ٧ وفرق تخميني ٨."],["s","إذن تخميني أقرب بقليل! والأهم أن نتعلم كيف نقدّر."]],
+[["s","كل الكرات الحمراء كبيرة، هذا مؤكد!"],["r","انتظري، انظري إلى هذه الكرة الحمراء الصغيرة!"],["s","أوه! إذن العبارة ليست صحيحة."],["r","هذا اسمه مثال مضاد، ويكفي مثال واحد!"]],
+[["r","اللوحة تقول: إذا ضغطتِ الزر، فإن المصابيح تضيء."],["s","حسنًا، سأضغط الزر الآن!"],["r","انظري! أضاءت المصابيح واحدًا بعد الآخر."],["s","تحقق الشرط، فتحققت النتيجة!"]],
+[["s","ما ميل هذا المنحدر؟"],["r","الارتفاع ٢ والمسافة ٤، فنقسم ٢ على ٤."],["s","يعني الميل نصف!"],["r","وانظري كيف تتدحرج الكرة بسرعة!"]],
+[["s","كانت مغامرة رائعة!"],["r","صحيح، الرياضيات هنا لعبة حقيقية."],["s","ونكتشف فيها شيئًا جديدًا كل مرة!"],["r","غدًا نعود إلى الحديقة؟"],["s","طبعًا!"]]
+];
+var sc=document.querySelectorAll(".scene"),dots=document.getElementById("dots"),i=0,timer=null;
+D.forEach(function(){dots.appendChild(document.createElement("i"))});
+function show(n){
+ i=Math.max(0,Math.min(D.length-1,n));
+ sc.forEach(function(s,k){s.classList.toggle("on",k===i)});
+ dots.childNodes.forEach(function(d,k){d.classList.toggle("on",k===i)});
+ document.getElementById("t").textContent=D[i][0];
+ document.getElementById("p").textContent=D[i][1];
+ var h=document.getElementById("dlg");h.textContent="";
+ L[i].forEach(function(l,k){var d=document.createElement("div");d.className="ln "+l[0];d.style.animationDelay=(k*1.2)+"s";var b=document.createElement("b");b.textContent=l[0]==="r"?"رغد":"سما";var s=document.createElement("span");s.textContent=l[1];d.appendChild(b);d.appendChild(s);h.appendChild(d)});
+ document.getElementById("prev").disabled=i===0;
+ document.getElementById("next").disabled=i===D.length-1;
+ if(i===D.length-1)stop();
+ audio(i);
+}
+function stop(){if(timer){clearInterval(timer);timer=null}document.getElementById("play").textContent="تشغيل تلقائي"}
+document.getElementById("next").onclick=function(){stop();show(i+1)};
+document.getElementById("prev").onclick=function(){stop();show(i-1)};
+document.getElementById("play").onclick=function(){
+ if(timer){stop();return}
+ if(i===D.length-1)show(0);
+ document.getElementById("play").textContent="إيقاف";
+ timer=setInterval(function(){show(i+1)},8000);
+};
+document.addEventListener("keydown",function(e){
+ if(e.key==="ArrowLeft"){stop();show(i+1)}
+ if(e.key==="ArrowRight"){stop();show(i-1)}
+});
+var on=false,ac=null,st=null;
+var C=[
+[[523,.3],[659,.5],[784,.7],[1047,.95]],
+[[660,.6],[740,1.6],[784,3.2],[988,3.4]],
+[[660,.4],[150,1.9,"triangle"],[150,2.3,"triangle"],[740,1.2],[880,2.6]],
+[[300,.7,"square"],[523,1.3],[587,1.9],[659,2.5],[784,3.1]],
+[[500,1,"triangle"],[400,1.5,"triangle"],[300,2,"triangle"],[784,1.5]],
+[[523,0],[659,.15],[784,.3],[1047,.45],[784,1.2],[1047,1.35],[1319,1.5]]
+];
+function tone(f,t,ty){if(!ac)return;var o=ac.createOscillator(),g=ac.createGain(),s=ac.currentTime+t;o.type=ty||"sine";o.frequency.value=f;g.gain.setValueAtTime(.0001,s);g.gain.exponentialRampToValueAtTime(.09,s+.02);g.gain.exponentialRampToValueAtTime(.0001,s+.35);o.connect(g);g.connect(ac.destination);o.start(s);o.stop(s+.4)}
+function audio(n){
+ if(!on)return;
+ C[n].forEach(function(c){tone(c[0],c[1],c[2])});
+}
+document.getElementById("snd").onclick=function(){
+ on=!on;
+ if(on&&!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}
+ if(ac&&ac.state==="suspended")ac.resume();
+ this.textContent=on?"المؤثرات الصوتية: تعمل":"المؤثرات الصوتية: مغلقة";
+ audio(i);
+};
+show(0);
+</script>
+</body>
+</html>
